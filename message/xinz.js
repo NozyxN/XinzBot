@@ -1437,7 +1437,7 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
                 if (args.length < 2) return reply(`Penggunaan ${command} _link tiktok_\n\nContoh : ${command} https://vt.tiktok.com/ZSJVPawwv/`)
                 if (!isUrl(args[1]) && !args[1].includes('tiktok.com')) return reply(body.replace(args[1], "*"+args[1]+"*")+'\n\n'+mess.error.Iv+`\nContoh : ${command} https://vt.tiktok.com/ZSJVPawwv/`)
                 reply(mess.wait)
-                axios.get(`https://api-ramlan.herokuapp.com/api/tiktok?url=${args[1]}&apikey=${apikey}`)
+                axios.get(`https://zacros.herokuapp.com/downloader/tiktok?link=${args[1]}`)
                 .then(({data}) => {
                 console.log(data)
                 sendFileFromUrl(from, data.result.nowatermark, '', msg)
@@ -1455,7 +1455,7 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
                 if (args.length < 2) return reply(`Penggunaan ${command} _link tiktok_\n\nContoh : ${command} https://vt.tiktok.com/ZSJVPawwv/`)
                 if (!isUrl(args[1]) && !args[1].includes('tiktok.com')) return reply(body.replace(args[1], "*"+args[1]+"*")+'\n\n'+mess.error.Iv+`\nContoh : ${command} https://vt.tiktok.com/ZSJVPawwv/`)
                 reply(mess.wait)
-                axios.get(`https://api-ramlan.herokuapp.com/api/tiktok?url=${args[1]}&apikey=${apikey}`)
+                axios.get(`https://zacros.herokuapp.com/downloader/tiktokaudio?link=${args[1]}`)
                 .then(({data}) => {
                 console.log(data)
                 sendFileFromUrl(from, data.result.audio, '', msg)
@@ -1600,7 +1600,7 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
 			case prefix+'waifu':{
                 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
                 reply(mess.wait)
-						axios.get(`https://api-ramlan.herokuapp.com/api/waifu?apikey=${apikey}`)
+						axios.get(`https://waifu.pics/api/sfw/waifu`)
 						.then(({data}) => {
 						sendFileFromUrl(from, data.link, 'Neh', msg)
 						})
@@ -1610,7 +1610,7 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
 			case prefix+'nekonime':{
                 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
                 reply(mess.wait)
-						axios.get(`https://api-ramlan.herokuapp.com/api/neko?apikey=${apikey}`)
+						axios.get(`https://waifu.pics/api/sfw/neko`)
 						.then(({data}) => {
 						sendFileFromUrl(from, data.link, 'Neh', msg)
 						})
@@ -1620,7 +1620,7 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
 			case prefix+'megumin':{
                 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
                 reply(mess.wait)
-						sendFileFromUrl(from, `https://api-ramlan.herokuapp.com/api/megumin?apikey=${apikey}`, 'Neh', msg)
+						sendFileFromUrl(from, `https://waifu.pics/api/sfw/megumin`)
 						limitAdd(sender, limit)
 						}
                       break
